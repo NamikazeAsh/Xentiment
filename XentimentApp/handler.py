@@ -4,7 +4,7 @@ import pandas as pd
 def TwitterScraper(hashtag, media_path):
     hashtagName = hashtag
     twitter_data = []
-    tweets_per_request = 20  # Number of tweets per request
+    tweets_per_request = 20
 
     payload = {
         'api_key': '81e2e2d6b532db47614567d0eb81462b',
@@ -22,19 +22,15 @@ def TwitterScraper(hashtag, media_path):
             
             for tweet in all_tweets:
                 tweet_url = tweet.get('link', '')
-                # Check if the tweet URL contains '/status/' indicating it's an actual tweet
                 if '/status/' in tweet_url:
                     twitter_data.append(tweet)
 
-                # Check if we've reached the desired number of tweets
                 if len(twitter_data) >= tweets_per_request:
                     break
             
-            # Check if there are no more tweets or the API doesn't return more results
             if len(all_tweets) < tweets_per_request:
                 break
-                
-            # Check if 'pagination' exists and get the next page
+
             if 'pagination' in data and 'next' in data['pagination']:
                 payload['page'] = data['pagination']['next']
             else:
