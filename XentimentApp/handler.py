@@ -38,9 +38,12 @@ def TwitterScraper(hashtag, media_path):
         else:
             break  
     df = pd.DataFrame(twitter_data[:tweets_per_request]) 
-    df.to_csv(media_path + hashtagName + '.csv', index=False) 
+    df_filename = media_path + hashtagName
+    df.to_csv(df_filename + '.csv', index=False)
 
-# -------------------------------- TempRunner -------------------------------- #
-hashtag = input("Enter hashtag (temp): ")
-media_path = "D:/CS/Python/Xentiment/media/"
-TwitterScraper(hashtag, media_path)
+    return df_filename
+    
+# # -------------------------------- TempRunner -------------------------------- #
+# hashtag = input("Enter hashtag (temp): ")
+# media_path = "D:/CS/Python/Xentiment/media/"
+# TwitterScraper(hashtag, media_path)
