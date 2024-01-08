@@ -9,18 +9,17 @@ def XentimentHome(request):
         
         query = request.GET.get('searchQuery')
     
-        # -------------------------- Retrieval from handler & save as CSV -------------------------- #
         if query:
+            
             queryCSV = TwitterScraper(query,settings.MEDIA_ROOT)
-            print("Query: ", query)
-            print(queryCSV)
+            queryCSV = queryCSV + ".csv"
+            CSVSentiAnal(queryCSV,queryCSV)
+            TweetLinkScraper(queryCSV)    
+            print("Analyzed in views")
+            
         else:
+            
             print("Query: ", query)
-        
-        # ---------------------------- Sentiment Analysis ---------------------------- #
-        CSVSentiAnal(queryCSV,queryCSV)
-        print("Analyzed in views")
-        
         
         # ------------------------------- Final Output ------------------------------- #
         
