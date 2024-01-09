@@ -26,7 +26,7 @@ def TweetLinkScraper(input_file_path):
     
     print(linkDict)
 
-    return 
+    return linkDict
 
 # # ----------------------------- Temp Code Runner ----------------------------- #
 # input_file_path = 'D:/CS/Python/Xentiment/#.csv'

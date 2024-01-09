@@ -54,31 +54,10 @@
 
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Clients</p>
+                <span data-purecounter-start="0" data-purecounter-end="{{nAnalData.analysis}}" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Analysis</p>
               </div>
-            </div><!-- End Stats Item -->
-
-            <div class="col-lg-3 col-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Projects</p>
-              </div>
-            </div><!-- End Stats Item -->
-
-            <div class="col-lg-3 col-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Support</p>
-              </div>
-            </div><!-- End Stats Item -->
-
-            <div class="col-lg-3 col-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Workers</p>
-              </div>
-            </div><!-- End Stats Item -->
+            </div>
 
           </div>
         </div>
@@ -103,17 +82,21 @@
 
         </div>
 
+        {% if linkDict %}
         <div class="row gy-4">
-
+          {% for link in linkDict %}
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="card">
               <p>
-                <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Naruto, Minato and Boruto chilling in Mount Myoboku. Pretty stoked to see more of Boruto’s toads in action, frog summons imo have always been the most versatile in the series. Combat, espionnage, infiltration, you name it. <a href="https://t.co/SlREhc2RdM">pic.twitter.com/SlREhc2RdM</a></p>&mdash; Brenton (@BrentonsArt) <a href="https://twitter.com/BrentonsArt/status/1722274736447832414?ref_src=twsrc%5Etfw">November 8, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <blockquote class="twitter-tweet"><a href="{{link}}">November 8, 2023</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
               </p>
             </div>
           </div>
-
+          {% endfor %}
         </div>
+        {% endif %}
+
+        
 
       </div>
     </section><!-- End Services Section -->
